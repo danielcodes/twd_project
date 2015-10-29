@@ -1,0 +1,12 @@
+Painful errors so that I don't have to re google
+
+-on the main url.py page needs to use the patterns function, not define a tuple
+-don't apply EOL to a string, won't parse properly
+
+-find correct way to place templates directory
+'DIRS': [TEMPLATE_PATH,], where template path is 'path'
+
+-serving static media from the static folder, cool
+
+
+
