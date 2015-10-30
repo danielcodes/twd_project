@@ -1,12 +1,33 @@
 Painful errors so that I don't have to re google
 
+Superuser
+username - admin
+pw - admin
+
 -on the main url.py page needs to use the patterns function, not define a tuple
 -don't apply EOL to a string, won't parse properly
 
 -find correct way to place templates directory
 'DIRS': [TEMPLATE_PATH,], where template path is 'path'
 
--serving static media from the static folder, cool
 
+
+
+
+
+NOTES and SUMMARIES
+Summary - Templates
+-create template, specify path in setting.py
+-view is where the template is actually used
+-create view within project dir, view.py. Can add logic ie. extracting data from a DB
+-construct dictionary to pass
+-map view to url on url.py
+
+Summary 
+-create models, do makemig on the app, then run pm sqlmigrate app mig#
+-for every new model, makemig -> mig
+-configue DB in setting.py
+-create model in app's models.py, update admin.py to register model, do makemig -> mig, create population script for models
+-if db needs to be deleted, migrate, createsuperuser, sqlmigrate
 
 
