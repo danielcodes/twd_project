@@ -1,14 +1,39 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from rango.models import Category #Category model
+from rango.models import Page #Page model
 
 def index(request):
 
-    context_dict = {'boldmessage': "I am bold font from the content"}
+    category_list = Category.objects.order_by('-likes')[:5]
+    page_list = Page.objects.order_by('-views')[:5]
+    context_dict = {'categories': category_list, 'pages': page_list}
     return render(request, 'rango/index.html', context_dict)
-    #return HttpResponse("Rango says hey there world! <br/> <a href='/rango/about'>About</a>")
 
 def about(request):
     context_dict = {'boldmessage': "We're looking for One Piece"}
     return render(request, 'rango/about.html', context_dict)
-    #return HttpResponse("Rango says here is the about page. <br/> <a href='/rango/'>Index</a>")
+
+def category(request, category_name_slug):
+
+    #dict for template
+    context_dict = {}
+
+    try:
+        #find the slug
+        category = Category.objects.get(slug=category_name_slug)
+        context_dict['category_name'] = category.name
+
+        #retrieve pages
+        pages = Page.objects.filter(category=category)
+
+        #add to dict under pages
+        context_dict['pages'] = pages
+        context_dict['category'] = category
+    except Category.DoesNotExist:
+        pass
+
+    return render(request, 'rango/category.html', context_dict)
+        
+
 
