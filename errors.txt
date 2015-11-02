@@ -28,6 +28,8 @@ Summary - Templates
 -construct dictionary to pass
 -map view to url on url.py
 
+==========================================================
+
 Summary - Models 
 -create models, do makemig on the app, then run pm sqlmigrate app mig#
 -for every new model, makemig -> mig
@@ -35,7 +37,19 @@ Summary - Models
 -create model in app's models.py, update admin.py to register model, do makemig -> mig, create population script for models
 -if db needs to be deleted, migrate, createsuperuser, sqlmigrate
 
+==========================================================
+
 Summary - Models, Templates and Views
 -data driven apps, import models, query models to get data, pass results from model into template, set up template, map URL to view
+
+==========================================================
+
+Summary - Forms
+-isolate forms in the application's form.py module
+-create the view, template, add url and add it on through the index
+-forms.py -> create views.py -> create template -> add url -> link it up on whatever page it is meant to be displayed
+-views take the data from the models and pass it to the template as a context dict
+
+
 
 
