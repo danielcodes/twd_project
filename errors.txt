@@ -21,6 +21,8 @@ pw - rango
 
 
 NOTES and SUMMARIES
+==========================================================
+
 Summary - Templates
 -create template, specify path in setting.py
 -view is where the template is actually used
@@ -49,6 +51,18 @@ Summary - Forms
 -create the view, template, add url and add it on through the index
 -forms.py -> create views.py -> create template -> add url -> link it up on whatever page it is meant to be displayed
 -views take the data from the models and pass it to the template as a context dict
+
+==========================================================
+
+Summary - Authentication
+-create the models, forms, views, urls
+-login/logout, restrict access if not logged in
+
+
+
+
+
+
 
 
 
