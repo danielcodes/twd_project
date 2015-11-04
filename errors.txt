@@ -58,10 +58,12 @@ Summary - Authentication
 -create the models, forms, views, urls
 -login/logout, restrict access if not logged in
 
+==========================================================
 
-
-
-
+Summary - Working with templates
+-reduce redundant html, use a base template and create blocks for content
+-template does not exist error, correct dir needed to be in template/base.html
+-as pages are replaced with templates, some footer links should not be displayed
 
 
 
