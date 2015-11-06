@@ -7,8 +7,9 @@
 
 {% block body_block %}
 
-   <h1>This is Rango's about page</h1>
+	<h1>This is Rango's about page</h1>
 	Welcome! <strong>{{ boldmessage }}</strong><br />
+	<p>This page has been visited: {{ visits }} times</p>
 	<img src="{% static "images/onepiece.jpg" %}" alt="One Piece" />
 
 {% endblock %}

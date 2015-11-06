@@ -65,6 +65,21 @@ Summary - Working with templates
 -template does not exist error, correct dir needed to be in template/base.html
 -as pages are replaced with templates, some footer links should not be displayed
 
+==========================================================
+
+Summary - Cookies and sessions
+-cookies are stored on the server side and provided on request by the client (post visit)
+-can used sessions instead of cookies for safety purposes
+-super confused
+
+==========================================================
+
+Summary - User auth, django-resgistration-redux
+
+
+
+
+
 
 
 
