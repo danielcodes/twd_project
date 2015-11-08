@@ -78,8 +78,17 @@ Summary - User auth, django-resgistration-redux
 -plugin so you don't have to write auth
 -how to, add it to installed apps, pass it to urls,	and create templates of you own
 -use account/ to find the names for the urls, to use on templates
+-no longer a need to write your own forms, models, and views
 
+==========================================================
 
+Summary - Bootstrapping Rango
+-updating base.html makes a difference everywhere
+-all the templates have to be painfully tweaked, have to look at each bootstrap class, I guess it's better writing your own
+
+==========================================================
+
+Summary - Template Tags
 
 
 
