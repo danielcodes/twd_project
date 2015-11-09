@@ -89,7 +89,7 @@ Summary - Bootstrapping Rango
 ==========================================================
 
 Summary - Template Tags
-
+-categories on the sidebar, so repeated html
 
 
 
