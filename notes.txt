@@ -102,23 +102,6 @@ Summary - Template Tags
 
 Summary - Adding External Search Functionality
 -first get free API key, need to create a function that queries the Bing's server for a result, done in json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-the usual, create template page, create view, create url and link it up an base.html
 
 
