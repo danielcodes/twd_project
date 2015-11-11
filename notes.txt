@@ -20,6 +20,11 @@ pw - rango
 
 
 
+Some general notes
+-views are hooked into urls via name of class, category page, url must have 
+
+
+
 NOTES and SUMMARIES
 ==========================================================
 
@@ -90,6 +95,27 @@ Summary - Bootstrapping Rango
 
 Summary - Template Tags
 -categories on the sidebar, so repeated html
+-the categories list called through a function, and linked with a bit of html, dope
+-3 steps, create function, sync it with the html, and render it wherever
+
+==========================================================
+
+Summary - Adding External Search Functionality
+-first get free API key, need to create a function that queries the Bing's server for a result, done in json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
