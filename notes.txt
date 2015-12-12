@@ -114,7 +114,8 @@ Summary - Making Rango Tango
 --this is activated each time a person clicks on the url, it goes through goto/ first so that the db object can be modified
 
 -searching and browsing between categories
---search for a category and return the pages
+--search is done through post, when something goes through as a POST, the name of the input is picked up from the view, like a dict, POST['value']
+--search and add pages to current category
 
 -services for registered users
 --what

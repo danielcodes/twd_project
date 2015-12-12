@@ -58,7 +58,20 @@ def category(request, category_name_slug):
 
     #dict for template
     context_dict = {}
+    context_dict['result_list'] = None
+    context_dict['query'] = None
 
+    #check for POST request
+    if request.method == 'POST':
+        #removes whitespace?
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+            context_dict['result_list'] = result_list
+            context_dict['query'] = query
     try:
         #find the slug
         category = Category.objects.get(slug=category_name_slug)
@@ -72,14 +85,11 @@ def category(request, category_name_slug):
         context_dict['pages'] = pages
         context_dict['category'] = category
 
-        #POST request, include result_list
-        #searching for categories
-        if request.method == 'POST':
-            input_search = request.POST['query']
-            context_dict['result_list'] = Page.objects.filter(category = input_search)
-
     except Category.DoesNotExist:
         pass
+
+    if not context_dict['query']:
+        context_dict['query'] = category.name
 
     return render(request, 'rango/category.html', context_dict)
         
