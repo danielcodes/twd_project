@@ -39,7 +39,6 @@
 			<ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'search' %}">Search</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
                         <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
@@ -63,11 +62,14 @@
 			{% endblock %}
 
         </div>
+
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <div>
-                {% block body_block %}{% endblock %}
+                {% block body_block %}
+				{% endblock %}
             </div>
         </div>
+
       </div>
     </div>
 

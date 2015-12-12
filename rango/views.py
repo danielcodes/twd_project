@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -66,11 +66,18 @@ def category(request, category_name_slug):
         context_dict['category_slug'] = category_name_slug
 
         #retrieve pages
-        pages = Page.objects.filter(category=category)
+        pages = Page.objects.filter(category=category).order_by('-views')
 
         #add to dict under pages
         context_dict['pages'] = pages
         context_dict['category'] = category
+
+        #POST request, include result_list
+        #searching for categories
+        if request.method == 'POST':
+            input_search = request.POST['query']
+            context_dict['result_list'] = Page.objects.filter(category = input_search)
+
     except Category.DoesNotExist:
         pass
 
@@ -136,6 +143,24 @@ def search(request):
 
     return render(request, 'rango/search.html', {'result_list': result_list})
 
+#track views from rango
+def track_url(request):
+    page_id = None
+    url = '/rango/'
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+            try:
+                page = Page.objects.get(id=page_id)
+                page.views = page.views + 1
+                page.save()
+                url = page.url
+            except:
+                pass
+
+    return redirect(url)
+
+    
 # Use the login_required() decorator to ensure only those logged in can access the view.
 #for restriction
 @login_required

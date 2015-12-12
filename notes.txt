@@ -18,8 +18,6 @@ pw - rango
 
 
 
-
-
 Some general notes
 -views are hooked into urls via name of class, category page, url must have 
 
@@ -48,6 +46,8 @@ Summary - Models
 
 Summary - Models, Templates and Views
 -data driven apps, import models, query models to get data, pass results from model into template, set up template, map URL to view
+-understand that the entry point is the url, it then finds finds the view, parameter in the url is what is passed to the view function
+-configure it properly on the urls.py, as in it must match, in the urls.py and category()
 
 ==========================================================
 
@@ -103,5 +103,22 @@ Summary - Template Tags
 Summary - Adding External Search Functionality
 -first get free API key, need to create a function that queries the Bing's server for a result, done in json
 -the usual, create template page, create view, create url and link it up an base.html
+
+==========================================================
+
+Summary - Making Rango Tango
+-3 tasks
+-tracking page clicks to ext links, ie. rango -> flask
+--create track_url view, map it to goto/ and name it 'goto'
+--create a get request that has the page id as parameter through a query string
+--this is activated each time a person clicks on the url, it goes through goto/ first so that the db object can be modified
+
+-searching and browsing between categories
+--search for a category and return the pages
+
+-services for registered users
+--what
+
+==========================================================
 
 
