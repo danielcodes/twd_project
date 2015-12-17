@@ -10,3 +10,13 @@ $('#likes').click(function(){
 	   $('#likes').hide();
     });
 });
+
+$('#suggestion').keyup(function(){
+	//get the value from text box
+	//and pass it to the view
+	var query;
+	query = $(this).val();
+	$.get('/rango/suggest_category/', {suggestion: query}, function(data){
+		$('#cats').html(data);
+    });
+});

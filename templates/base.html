@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
     <title>Rango - {% block title %}How to Tango with Django!{% endblock %}</title>
 
@@ -27,6 +26,7 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -36,38 +36,61 @@
           </button>
           <a class="navbar-brand" href="/rango/">Rango</a>
         </div>
+
         <div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
-                        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-						<li><a href="{% url 'auth_password_change' %}">Change Password</a></li>
-                        <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-                    {% else %}
-                        <li><a href="{% url 'registration_register' %}">Register Here</a></li>
-                        <li><a href="{% url 'auth_login' %}">Login</a></li>
-                    {% endif %}
-			</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+							<li><a href="{% url 'index' %}">Home</a></li>
+							<li><a href="{% url 'about' %}">About</a></li>
+
+							
+							<!--features for users-->
+							{% if user.is_authenticated %}
+								<li><a href="{% url 'add_category' %}">Add a New Category</a></li>
+								<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+								<li><a href="{% url 'auth_password_change' %}">Change Password</a></li>
+								<li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+							{% else %}
+								<li><a href="{% url 'registration_register' %}">Register Here</a></li>
+								<li><a href="{% url 'auth_login' %}">Login</a></li>
+							{% endif %}
+					</ul>
+				<!--close nav bar-->
         </div>
+
       </div>
     </div>
 
     <div class="container-fluid">
       <div class="row">
+	
+				<!--side bar with categories-->
+				<!--the function get_category_list is in template tags-->
+
         <div class="col-sm-3 col-md-2 sidebar">
 
-			{% block side_block %}
-			{% get_category_list category %}
-			{% endblock %}
+						<!--search for a category-->
+						<ul class="nav nav-list">
+						<li class="nav-header">Find a Category</li>
+							<form>
+							<label></label>
+							<li><input class="search-query span10 form-control" type="text" name="suggestion" value="" id="suggestion" /></li>
+							</form>
+						</ul>
 
+						<div id="cats"></div>
+
+						{% block side_block %}
+						{% get_category_list category %}
+						{% endblock %}
+						
         </div>
 
+				<!--body block goes here-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <div>
                 {% block body_block %}
-				{% endblock %}
+								{% endblock %}
             </div>
         </div>
 
@@ -88,10 +111,5 @@
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
-
-
-
-
 
 
