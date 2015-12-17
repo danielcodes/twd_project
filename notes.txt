@@ -122,4 +122,23 @@ Summary - Making Rango Tango
 
 ==========================================================
 
+Summary - Ajax in django with jquery
+-features to implement with ajax
+-like button for each category
+--similar, to the url count before redirect, but now using jquery ajax
+--update the html that needs to be updated (view count), create view that processes the request
+--finally, write the ajax code that makes the GET request on click and makes a call to the backend by calling the view
+
+
+-inline category suggestions
+-add button to quickly add category and pages
+
+ 
+
+
+
+
+
+
+
 

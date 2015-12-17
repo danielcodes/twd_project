@@ -154,9 +154,13 @@ def search(request):
     return render(request, 'rango/search.html', {'result_list': result_list})
 
 #track views from rango
+#before the urls are directed to their destinary, they pass through this view
+#this view is expecting a get request that will provide the id of the page that has been clicked
 def track_url(request):
+    #set defaults first
     page_id = None
     url = '/rango/'
+
     if request.method == 'GET':
         if 'page_id' in request.GET:
             page_id = request.GET['page_id']
@@ -176,5 +180,25 @@ def track_url(request):
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html') 
+
+#like category
+#in the url query string, the name can be invoked by GET['key']
+#view works when there is a GET request
+@login_required
+def like_category(request):
+
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+
+    likes = 0
+    if cat_id:
+        cat = Category.objects.get(id=int(cat_id))
+        if cat:
+            likes = cat.likes + 1
+            cat.likes =  likes
+            cat.save()
+
+    return HttpResponse(likes)
 
 

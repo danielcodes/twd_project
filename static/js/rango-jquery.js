@@ -13,14 +13,14 @@ $(document).ready(function() {
 	});
 
 	//hover event
-	$("p").hover( 
-		//hover does mouse in and mouse out events
-		function() {
-		$(this).css('color', 'red');
-		},
-		function() {
-			$(this).css('color', 'blue');
-		});	
+   /* $("p").hover( */
+		////hover does mouse in and mouse out events
+		//function() {
+		//$(this).css('color', 'red');
+		//},
+		//function() {
+			//$(this).css('color', 'blue');
+		//});	
 
 });
 
