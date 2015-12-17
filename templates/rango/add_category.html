@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}
-	Category Form 
-{% endblock %}
+{% block title %} Category Form {% endblock %}
 
 {% block body_block %}
 
@@ -11,7 +9,7 @@
 		<h1>Add a Category</h1>
 	</div>   
 
-        <form role="form"  id="page_form" method="post" action="/rango/add_category/">
+			<form role="form"  id="page_form" method="post" action="/rango/add_category/">
 			{% csrf_token %}
 			{% for hidden in form.hidden_fields %}
 			{{ hidden }}
@@ -22,9 +20,8 @@
 			{{ field.help_text }}
 			{{ field }}
 			{% endfor %}
-		
-
-            <button class="btn btn-primary" type="submit" name="submit">Create category</button>
+	
+			<button class="btn btn-primary" type="submit" name="submit">Create category</button>
 		</form>
 	
 {% endblock %}
