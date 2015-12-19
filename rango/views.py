@@ -215,6 +215,7 @@ def get_category_list(max_results=0, starts_with=''):
 
     return cat_list
 
+#provide search for categories
 def suggest_category(request):
 
     cat_list = []
@@ -227,13 +228,36 @@ def suggest_category(request):
     cat_list = get_category_list(8, starts_with)
 
     #reuse the template from template tags
+    #this returns some html with a dictionary
     return render(request, 'rango/cats.html', {'cats': cat_list })
 
+#add a page from search results
+@login_required
+def auto_add_page(request):
 
+    cat_id = None
+    url = None
+    title = None
+    context_dict = {}
 
+    if request.method == 'GET':
+        
+        #grab all parameters
+        cat_id = request.GET['category_id']
+        url = request.GET['url']
+        title = request.GET['title']
 
+        if cat_id:
+            #create a new object
+            category = Category.objects.get(id=int(cat_id))
+            p = Page.objects.get_or_create(category=category, title=title, url=url)
 
+            pages = Page.objects.filter(category=category).order_by('-views')
 
+            # Adds our results list to the template context under name pages.
+            context_dict['pages'] = pages
+
+    return render(request, 'rango/page_list.html', context_dict)
 
 
 

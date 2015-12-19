@@ -134,8 +134,13 @@ Summary - Ajax in django with jquery
 -create an input box that as the user types, there is an ajax calls that filters the categories
 
 -add button to quickly add category and pages
+-> for exercise add a delete button next to the pages
+--for search results, add a add page button, same concept as like button
+--create a button for the event to be handled, wrap the div that will be update (pages)
+--pass get request from the button to a view with all necessary parameters, this view will update the database with a new page object
+--and don't forget to update the urls
 
- 
+==========================================================
 
 
 
