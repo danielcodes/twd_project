@@ -16,8 +16,6 @@ pw - rango
 -bug with adding slug to category models, added the default then just did migrate
 
 
-
-
 Some general notes
 -views are hooked into urls via name of class, category page, url must have 
 
@@ -142,10 +140,15 @@ Summary - Ajax in django with jquery
 
 ==========================================================
 
+Summary - Automated testing
+-testing maintains code robustness
+-can help dig out bugs through regression
+-tests inherit from TestCase
+-something wrong with slug fields again
+-testing models is easy, create models and just that their field are correct
+-use the client object to test responses from a url, can test what's inside (html) and also the dictionary that's been passed
+-no form testing nor selenium
 
-
-
-
-
+==========================================================
 
 
