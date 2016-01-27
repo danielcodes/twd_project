@@ -6,8 +6,8 @@ The project is called Rango. The application displays categories which are uniqu
 
 ![rango](/docs/rango.png)
 
-To run locally,
-first clone the repo down,
+## Run it locally
+Clone repo down,
 ``` https://github.com/danielcodes/twd_project.git ```
 
 Switch over to the no-search branch, 
