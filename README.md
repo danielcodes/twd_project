@@ -4,9 +4,7 @@ First tutorial I used for learning Django, check out their [site](http://www.tan
 
 The project is called Rango. The application displays categories which are unique, and these categories contain pages.
 
-
-.. picture here
-
+![rango](/docs/rango.png)
 
 To run locally,
 first clone the repo down,
